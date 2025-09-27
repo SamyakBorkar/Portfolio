@@ -2,36 +2,52 @@
 
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { GraduationCap, Calendar, MapPin, Award } from "lucide-react"
+import { Calendar, MapPin, Award } from "lucide-react"
 
 export function EducationTimeline() {
-  const education = {
-    institution: "Shri Guru Gobind Singhji College of Engineering and Technology",
-    location: "Nanded",
-    degree: "B.Tech Information Technology",
-    duration: "2022 - 2026",
-    gpa: "8.3/10.0",
-    status: "Current",
-    highlights: [
-      "Strong foundation in Computer Science fundamentals",
-      "Specialized coursework in Web Development and AI/ML",
-      "Active participation in coding competitions",
-      "Leadership roles in technical societies",
-    ],
-  }
-
-  const certifications = [
+  const educationHistory = [
     {
-      title: "Java (Basic)",
-      issuer: "HackerRank",
-      description: "Validated core Java programming concepts through hands-on coding assessments",
-      date: "2024",
+      institution: "Shri Guru Gobind Singhji College of Engineering and Technology",
+      location: "Nanded",
+      degree: "B.Tech Information Technology",
+      duration: "2022 - 2026",
+      gpa: "8.3/10.0",
+      status: "Current",
+      level: "Undergraduate",
+      highlights: [
+        "Strong foundation in Computer Science fundamentals",
+        "Specialized coursework in Web Development and AI/ML",
+        "Active participation in coding competitions",
+        "Leadership roles in technical societies",
+      ],
     },
     {
-      title: "JavaScript (Basic)",
-      issuer: "HackerRank",
-      description: "Demonstrated proficiency in JavaScript fundamentals, DOM manipulation, and ES6 features",
-      date: "2024",
+      institution: "Higher Secondary School",
+      location: "Maharashtra",
+      degree: "HSC (Science Stream)",
+      duration: "2020 - 2022",
+      gpa: "85%",
+      status: "Completed",
+      level: "Higher Secondary",
+      highlights: [
+        "Mathematics, Physics, Chemistry specialization",
+        "Strong analytical and problem-solving foundation",
+        "Participated in science exhibitions",
+      ],
+    },
+    {
+      institution: "Secondary School",
+      location: "Maharashtra",
+      degree: "SSC",
+      duration: "2018 - 2020",
+      gpa: "90%",
+      status: "Completed",
+      level: "Secondary",
+      highlights: [
+        "All-round academic excellence",
+        "Active in extracurricular activities",
+        "Leadership roles in school events",
+      ],
     },
   ]
 
@@ -39,95 +55,91 @@ export function EducationTimeline() {
     <section id="education" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="fade-in-up text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Education & Certifications</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Educational Journey</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Academic journey and professional certifications
+            My academic path from foundation to specialization
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Education Timeline */}
-          <div className="fade-in-up stagger-1">
-            <h3 className="text-2xl font-semibold mb-8 flex items-center">
-              <GraduationCap className="h-6 w-6 mr-3 text-accent" />
-              Education
-            </h3>
+        <div className="relative">
+          {/* Central timeline line */}
+          <div className="absolute left-1/2 transform -translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary hidden lg:block"></div>
 
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border"></div>
-
-              <Card className="p-8 ml-16 relative hover:shadow-lg transition-shadow">
+          <div className="space-y-12">
+            {educationHistory.map((edu, index) => (
+              <div
+                key={index}
+                className={`fade-in-up stagger-${index + 1} flex items-center ${
+                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                } flex-col lg:gap-12 gap-8`}
+              >
                 {/* Timeline dot */}
-                <div className="absolute -left-12 top-8 w-4 h-4 bg-accent rounded-full border-4 border-background shadow-lg"></div>
-
-                <div className="space-y-4">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h4 className="text-xl font-bold text-balance">{education.institution}</h4>
-                      <div className="flex items-center text-muted-foreground mt-1">
-                        <MapPin className="h-4 w-4 mr-1" />
-                        {education.location}
-                      </div>
-                    </div>
-                    <Badge className="bg-green-500/10 text-green-600 border-green-500/20">{education.status}</Badge>
-                  </div>
-
-                  <div className="space-y-2">
-                    <p className="font-semibold text-lg">{education.degree}</p>
-                    <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {education.duration}
-                      </div>
-                      <div className="flex items-center">
-                        <Award className="h-4 w-4 mr-1" />
-                        Current GPA: {education.gpa}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h5 className="font-semibold">Key Highlights:</h5>
-                    <ul className="space-y-1">
-                      {education.highlights.map((highlight, index) => (
-                        <li key={index} className="text-sm text-muted-foreground flex items-start">
-                          <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 mr-3 flex-shrink-0" />
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-primary to-accent rounded-full border-4 border-background shadow-lg z-10">
+                  <div className="absolute inset-1 bg-background rounded-full"></div>
                 </div>
-              </Card>
-            </div>
-          </div>
 
-          {/* Certifications */}
-          <div className="fade-in-up stagger-2">
-            <h3 className="text-2xl font-semibold mb-8 flex items-center">
-              <Award className="h-6 w-6 mr-3 text-accent" />
-              Certifications
-            </h3>
+                {/* Content card */}
+                <div className={`lg:w-5/12 w-full ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"} text-center`}>
+                  <Card className="p-8 hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-background to-muted/30">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <Badge
+                          variant="outline"
+                          className={`${
+                            edu.status === "Current"
+                              ? "bg-green-500/10 text-green-600 border-green-500/20"
+                              : "bg-blue-500/10 text-blue-600 border-blue-500/20"
+                          }`}
+                        >
+                          {edu.level}
+                        </Badge>
+                        <Badge variant="secondary">{edu.status}</Badge>
+                      </div>
 
-            <div className="space-y-6">
-              {certifications.map((cert, index) => (
-                <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
-                  <div className="space-y-3">
-                    <div className="flex items-start justify-between">
-                      <h4 className="font-bold text-lg">{cert.title}</h4>
-                      <Badge variant="outline" className="text-xs">
-                        {cert.date}
-                      </Badge>
+                      <div>
+                        <h3 className="text-xl font-bold text-balance mb-2">{edu.institution}</h3>
+                        <div className="flex items-center justify-center text-muted-foreground mb-1">
+                          <MapPin className="h-4 w-4 mr-1" />
+                          {edu.location}
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <p className="font-semibold text-lg">{edu.degree}</p>
+                        <div className="flex items-center justify-center space-x-4 text-sm text-muted-foreground">
+                          <div className="flex items-center">
+                            <Calendar className="h-4 w-4 mr-1" />
+                            {edu.duration}
+                          </div>
+                          <div className="flex items-center">
+                            <Award className="h-4 w-4 mr-1" />
+                            {edu.gpa}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-sm">Key Highlights:</h4>
+                        <ul className="space-y-1">
+                          {edu.highlights.map((highlight, highlightIndex) => (
+                            <li
+                              key={highlightIndex}
+                              className="text-sm text-muted-foreground flex items-start justify-center"
+                            >
+                              <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 mr-3 flex-shrink-0" />
+                              <span className="text-center">{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
+                  </Card>
+                </div>
 
-                    <p className="text-accent font-medium">{cert.issuer}</p>
-
-                    <p className="text-sm text-muted-foreground leading-relaxed text-pretty">{cert.description}</p>
-                  </div>
-                </Card>
-              ))}
-            </div>
+                {/* Spacer for zigzag effect */}
+                <div className="lg:w-5/12 hidden lg:block"></div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

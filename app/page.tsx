@@ -9,6 +9,11 @@ import { ProjectsSection } from "@/components/projects-section"
 import { EducationTimeline } from "@/components/education-timeline"
 import { ContactSection } from "@/components/contact-section"
 import { ParallaxProvider } from "@/components/parallax-provider"
+import { Loader } from "@/components/loader"
+import { AchievementsSection } from "@/components/achievements-section"
+import { CertificationsSection } from "@/components/certifications-section"
+import { PositionsSection } from "@/components/positions-section"
+import { ScrollAnimations } from "@/components/scroll-animations"
 
 export default function Portfolio() {
   const [mounted, setMounted] = useState(false)
@@ -18,11 +23,13 @@ export default function Portfolio() {
   }, [])
 
   if (!mounted) {
-    return null
+    return <Loader />
   }
 
   return (
     <ParallaxProvider>
+      <Loader />
+      <ScrollAnimations />
       <div className="min-h-screen bg-background">
         <Navigation />
         <main>
@@ -31,6 +38,9 @@ export default function Portfolio() {
           <SkillsSection />
           <ProjectsSection />
           <EducationTimeline />
+          <AchievementsSection />
+          <CertificationsSection />
+          <PositionsSection />
           <ContactSection />
         </main>
       </div>

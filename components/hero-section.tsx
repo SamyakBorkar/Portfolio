@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Download } from "lucide-react"
+import { ArrowDown } from "lucide-react"
 
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -56,14 +56,14 @@ export function HeroSection() {
 
         <div className="fade-in-up stagger-2">
           <h2 className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-8 text-balance">
-            Full Stack Developer & AI Enthusiast
+            Full Stack Developer & System Architect
           </h2>
         </div>
 
         <div className="fade-in-up stagger-3">
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed text-pretty">
-            B.Tech IT student passionate about crafting innovative web applications and AI-powered solutions.
-            Specializing in React, Node.js, and modern development practices.
+            B.Tech IT student passionate about crafting innovative web applications and intelligent systems.
+            Specializing in React, Node.js, Golang, and modern development practices.
           </p>
         </div>
 
@@ -71,12 +71,6 @@ export function HeroSection() {
           <Button size="lg" onClick={scrollToAbout} className="group">
             View My Work
             <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-          </Button>
-          <Button variant="outline" size="lg" asChild>
-            <a href="/resume.pdf" download className="flex items-center">
-              <Download className="mr-2 h-4 w-4" />
-              Download Resume
-            </a>
           </Button>
         </div>
       </div>
