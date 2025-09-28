@@ -33,8 +33,9 @@ export function PositionsSection() {
       ],
       skills: ["Leadership", "Event Management", "Team Coordination", "Technical Mentoring", "Project Management"],
       icon: <Users className="h-6 w-6" />,
-      color: "from-blue-500/20 to-cyan-500/20",
-      iconColor: "text-blue-600",
+      color: "from-primary/5 to-accent/5",
+      iconColor: "text-primary",
+      borderColor: "border-primary/10",
     },
   ]
 
@@ -55,15 +56,15 @@ export function PositionsSection() {
           {positions.map((position, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.02, y: -5 }}
+              whileHover={{ y: -3 }}
               transition={{ duration: 0.3 }}
               onHoverStart={() => setHoveredPosition(index)}
               onHoverEnd={() => setHoveredPosition(null)}
             >
               <Card
-                className={`p-8 hover:shadow-2xl transition-all duration-300 fade-in-up
-                bg-gradient-to-br ${position.color} border-2 border-transparent 
-                ${hoveredPosition === index ? "border-primary/20 shadow-xl" : ""}`}
+                className={`p-8 hover:shadow-lg transition-all duration-300 fade-in-up
+                bg-gradient-to-br ${position.color} border ${position.borderColor}
+                ${hoveredPosition === index ? "shadow-lg border-primary/20" : ""}`}
               >
                 <div className="grid lg:grid-cols-3 gap-8">
                   {/* Main Info */}

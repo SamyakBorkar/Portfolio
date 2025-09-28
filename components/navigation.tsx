@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react"
+import { ThemeToggle } from "./theme-toggle"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -65,8 +66,9 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* Social Links */}
+          {/* Social Links & Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
             <Button variant="ghost" size="sm" asChild>
               <a href="https://github.com/SamyakBorkar" target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4" />
@@ -85,7 +87,8 @@ export function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
             <Button variant="ghost" size="sm" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
