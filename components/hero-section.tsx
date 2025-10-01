@@ -27,20 +27,20 @@ export function HeroSection() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute top-8 right-8 z-20">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute w-96 h-96 bg-accent/10 rounded-full blur-3xl parallax-slow"
+          className="absolute w-96 h-96 bg-accent/30 rounded-full blur-3xl parallax-slow"
           style={{
             left: `${20 + mousePosition.x * 0.02}%`,
             top: `${30 + mousePosition.y * 0.02}%`,
           }}
         />
         <div
-          className="absolute w-64 h-64 bg-primary/10 rounded-full blur-3xl parallax-fast"
+          className="absolute w-64 h-64 bg-primary/30 rounded-full blur-3xl parallax-fast"
           style={{
             right: `${15 + mousePosition.x * 0.015}%`,
             bottom: `${25 + mousePosition.y * 0.015}%`,
@@ -55,13 +55,13 @@ export function HeroSection() {
 
         <div className="fade-in-up stagger-1">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 text-balance">
-            Samyak Borkar
+            Samyak <span className="text-orange-400">Borkar</span>
           </h1>
         </div>
 
         <div className="fade-in-up stagger-2">
           <h2 className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-8 text-balance">
-            Full Stack Developer & System Architect
+            Software Developer & Techie!
           </h2>
         </div>
 

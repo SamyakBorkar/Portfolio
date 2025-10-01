@@ -37,7 +37,7 @@ export function ContactSection() {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn",
       username: "SamyakBorkar",
-      href: "https://linkedin.com/in/SamyakBorkar",
+      href: "https://www.linkedin.com/in/samyak-borkar-2a150528a/",
     },
   ]
 

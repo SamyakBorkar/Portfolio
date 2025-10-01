@@ -10,27 +10,32 @@ import { EducationTimeline } from "@/components/education-timeline"
 import { ContactSection } from "@/components/contact-section"
 import { ParallaxProvider } from "@/components/parallax-provider"
 import { Loader } from "@/components/loader"
-import { AchievementsSection } from "@/components/achievements-section"
 import { CertificationsSection } from "@/components/certifications-section"
 import { PositionsSection } from "@/components/positions-section"
 import { ScrollAnimations } from "@/components/scroll-animations"
 
 export default function Portfolio() {
-  const [mounted, setMounted] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setMounted(true)
+    // simulate load or replace with your actual logic
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+
+    return () => clearTimeout(timer)
   }, [])
 
-  if (!mounted) {
+  if (loading) {
+    // ✅ Only Loader while page is loading
     return <Loader />
   }
 
   return (
     <ParallaxProvider>
-      <Loader />
       <ScrollAnimations />
       <div className="min-h-screen bg-background">
+        {/* ✅ Navbar appears only after Loader finishes */}
         <Navigation />
         <main>
           <HeroSection />
@@ -38,7 +43,7 @@ export default function Portfolio() {
           <SkillsSection />
           <ProjectsSection />
           <EducationTimeline />
-          <AchievementsSection />
+          {/* <AchievementsSection /> */}
           <CertificationsSection />
           <PositionsSection />
           <ContactSection />

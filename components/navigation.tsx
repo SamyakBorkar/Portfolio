@@ -115,7 +115,7 @@ export function Navigation() {
                   </a>
                 </Button>
                 <Button variant="ghost" size="sm" asChild>
-                  <a href="https://linkedin.com/in/SamyakBorkar" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/samyak-borkar-2a150528a/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-4 w-4" />
                   </a>
                 </Button>

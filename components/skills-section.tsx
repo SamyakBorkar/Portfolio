@@ -1,103 +1,161 @@
 "use client"
 
+import { useState } from "react"
+import { motion } from "framer-motion"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import * as Tabs from "@radix-ui/react-tabs"
+import * as Progress from "@radix-ui/react-progress"
 import { Code, Palette, Server, Database, Brain, Wrench, Zap } from "lucide-react"
 
 export function SkillsSection() {
   const skillCategories = [
     {
-      icon: <Code className="h-6 w-6" />,
+      id: "languages",
+      icon: <Code className="h-5 w-5" />,
       title: "Programming Languages",
       skills: ["C", "C++", "Java", "JavaScript", "TypeScript", "Go (Golang)"],
-      color: "bg-blue-500/10 text-blue-600 border-blue-500/20",
+      color: "text-blue-500",
     },
     {
-      icon: <Palette className="h-6 w-6" />,
+      id: "frontend",
+      icon: <Palette className="h-5 w-5" />,
       title: "Frontend Development",
       skills: ["React.js", "Redux Toolkit", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"],
-      color: "bg-purple-500/10 text-purple-600 border-purple-500/20",
+      color: "text-purple-500",
     },
     {
-      icon: <Server className="h-6 w-6" />,
+      id: "backend",
+      icon: <Server className="h-5 w-5" />,
       title: "Backend Development",
       skills: ["Node.js", "Express.js"],
-      color: "bg-green-500/10 text-green-600 border-green-500/20",
+      color: "text-green-500",
     },
     {
-      icon: <Database className="h-6 w-6" />,
+      id: "database",
+      icon: <Database className="h-5 w-5" />,
       title: "Database Management",
       skills: ["MongoDB", "MySQL", "Vector DB"],
-      color: "bg-orange-500/10 text-orange-600 border-orange-500/20",
+      color: "text-orange-500",
     },
     {
-      icon: <Brain className="h-6 w-6" />,
-      title: "AI/Chatbot Tools",
+      id: "ai",
+      icon: <Brain className="h-5 w-5" />,
+      title: "AI / Chatbot Tools",
       skills: ["LangChain", "Ollama"],
-      color: "bg-pink-500/10 text-pink-600 border-pink-500/20",
+      color: "text-pink-500",
     },
     {
-      icon: <Wrench className="h-6 w-6" />,
+      id: "tools",
+      icon: <Wrench className="h-5 w-5" />,
       title: "Developer Tools",
       skills: ["Git", "GitHub", "VS Code", "Postman", "npm", "Vercel", "Render", "Docker", "CI/CD (GitHub Actions)"],
-      color: "bg-indigo-500/10 text-indigo-600 border-indigo-500/20",
+      color: "text-indigo-500",
     },
   ]
 
   const additionalSkills = [
-    { skill: "Object-Oriented Programming (OOP)", level: "Advanced" },
-    { skill: "Data Structures and Algorithms (DSA)", level: "Intermediate" },
-    { skill: "Linux (Basics)", level: "Intermediate" },
+    { skill: "Object-Oriented Programming (OOP)", level: 90 },
+    { skill: "Data Structures & Algorithms", level: 70 },
+    { skill: "Linux (Basics)", level: 60 },
   ]
 
+  const [activeTab, setActiveTab] = useState("languages")
+
   return (
-    <section id="skills" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="fade-in-up text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Technical Skills</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-pretty">
-            A comprehensive toolkit for building modern, scalable applications
+    <section id="skills" className="py-24 bg-gradient-to-br from-background via-accent/5 to-background">
+      <div className="max-w-6xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold mb-3"> Technical Skills</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Interactive showcase of my toolkit for building modern, scalable applications
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {skillCategories.map((category, index) => (
-            <Card key={index} className={`p-6 h-full fade-in-up stagger-${(index % 3) + 1} border-border`}>
-              <div className="flex items-center mb-4">
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mr-4 ${category.color}`}>
-                  {category.icon}
-                </div>
-                <h3 className="font-semibold text-lg">{category.title}</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <Badge key={skillIndex} variant="secondary" className="text-xs">
-                    {skill}
-                  </Badge>
+        {/* Tabs for categories */}
+        <Tabs.Root value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <Tabs.List className="flex flex-wrap justify-center gap-3 mb-12">
+            {skillCategories.map((cat) => (
+              <Tabs.Trigger
+                key={cat.id}
+                value={cat.id}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-accent/20 
+                           hover:border-accent/40 hover:shadow-md transition data-[state=active]:bg-accent/10"
+              >
+                <span className={cat.color}>{cat.icon}</span>
+                {cat.title}
+              </Tabs.Trigger>
+            ))}
+          </Tabs.List>
+
+          {skillCategories.map((cat) => (
+            <Tabs.Content key={cat.id} value={cat.id}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
+                {cat.skills.map((skill, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(255,255,255,0.2)" }}
+                  >
+                    <Card className="p-4 text-center bg-background/60 backdrop-blur border border-accent/20 rounded-xl transition">
+                      <Badge
+                        variant="secondary"
+                        className={`px-3 py-1 text-sm font-medium ${cat.color}`}
+                      >
+                        {skill}
+                      </Badge>
+                    </Card>
+                  </motion.div>
                 ))}
-              </div>
-            </Card>
+              </motion.div>
+            </Tabs.Content>
           ))}
-        </div>
+        </Tabs.Root>
 
-        <div className="fade-in-up">
-          <Card className="p-8 bg-gradient-to-r from-accent/5 via-primary/5 to-accent/5 border-accent/20">
-            <div className="flex items-center justify-center mb-6">
+        {/* Additional Expertise with progress bars */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          <Card className="p-10 bg-background/60 backdrop-blur-xl border-accent/20">
+            <div className="flex items-center justify-center mb-8">
               <Zap className="h-6 w-6 text-accent mr-3" />
-              <h3 className="font-semibold text-2xl text-center">Additional Expertise</h3>
+              <h3 className="font-semibold text-2xl">Additional Expertise</h3>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {additionalSkills.map((item, index) => (
-                <div key={index} className="text-center p-6 bg-background/50 rounded-xl border border-accent/10">
-                  <div className="font-medium text-foreground mb-3 text-lg">{item.skill}</div>
-                  <Badge variant="outline" className="border-accent/30 text-accent px-4 py-1">
-                    {item.level}
-                  </Badge>
+            <div className="space-y-6">
+              {additionalSkills.map((item, i) => (
+                <div key={i}>
+                  <div className="flex justify-between mb-2 text-sm font-medium">
+                    <span>{item.skill}</span>
+                    <span>{item.level}%</span>
+                  </div>
+                  <Progress.Root
+                    className="relative overflow-hidden bg-muted rounded-full w-full h-2"
+                    value={item.level}
+                  >
+                    <Progress.Indicator
+                      className="h-full transition-transform duration-300 bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400"
+                      style={{ transform: `translateX(-${100 - item.level}%)` }}
+                    />
+                  </Progress.Root>
                 </div>
               ))}
             </div>
           </Card>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
