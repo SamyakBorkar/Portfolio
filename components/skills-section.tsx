@@ -57,7 +57,7 @@ export function SkillsSection() {
   const additionalSkills = [
     { skill: "Object-Oriented Programming (OOP)", level: 90 },
     { skill: "Data Structures & Algorithms", level: 70 },
-    { skill: "Linux (Basics)", level: 60 },
+    { skill: "Linux", level: 60 },
   ]
 
   const [activeTab, setActiveTab] = useState("languages")

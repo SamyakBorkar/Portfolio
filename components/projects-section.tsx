@@ -48,7 +48,7 @@ export function ProjectsSection() {
       ],
       date: "Feb 2025 – Present",
       status: "Ongoing",
-      githubUrl: "https://github.com/SamyakBorkar",
+      githubUrl: "https://github.com/PranavKharche24/eco.git",
       highlights: [
         "15% reduction in software conflicts",
         "P2P dependency sharing",
