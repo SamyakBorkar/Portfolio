@@ -1,30 +1,48 @@
-# Portfolio website
+# 🌐 Samyak Borkar — Portfolio Website
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Welcome to my personal **developer portfolio**, a place where I showcase my journey, skills, projects, and achievements in technology and development.  
+This website is built with **Next.js**, **Tailwind CSS**, and a touch of creative animation to make it visually engaging.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/samyak-borkars-projects/v0-portfolio-website)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/BeaBnDsH8tu)
+---
 
-## Overview
+## ✨ Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+This portfolio highlights my work in **software development**, **robotics**, and **open-source contributions**.  
+It also features my educational background, key projects, and the technologies I love working with.
 
-## Deployment
+---
 
-Your project is live at:
+## 🧠 Features
 
-**[https://vercel.com/samyak-borkars-projects/v0-portfolio-website](https://vercel.com/samyak-borkars-projects/v0-portfolio-website)**
+- 🎯 **Interactive Hero Section** with a parallax background and typewriter effect  
+- 🪄 **Smooth Animations** powered by Framer Motion  
+- 📚 **Education Section** with custom parallax scrolling  
+- 💻 **Projects Showcase** displaying my tech stack and work  
+- 🌗 **Dark / Light Mode** support  
+- 📱 **Fully Responsive** across all devices  
+- 🚀 **Deployed on Vercel** for lightning-fast performance  
 
-## Build your app
+---
 
-Continue building your app on:
+## 🛠️ Tech Stack
 
-**[https://v0.app/chat/projects/BeaBnDsH8tu](https://v0.app/chat/projects/BeaBnDsH8tu)**
+| Category | Technologies |
+|-----------|---------------|
+| **Framework** | Next.js (React) |
+| **Styling** | Tailwind CSS |
+| **Animations** | Framer Motion |
+| **Icons** | Lucide React |
+| **Deployment** | Vercel |
+| **Package Manager** | pnpm |
 
-## How It Works
+---
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## 🧩 Getting Started
+
+To run this project locally:
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/samyakborkar/portfolio-website.git
+cd portfolio-website
+

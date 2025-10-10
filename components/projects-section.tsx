@@ -82,7 +82,7 @@ export function ProjectsSection() {
       date: "Jan 2025",
       status: "Live",
       liveUrl: "#",
-      githubUrl: "https://github.com/SamyakBorkar",
+      githubUrl: "https://samyakborkar.vercel.app/",
       highlights: [
         "Parallax effects",
         "Dark/Light mode",
