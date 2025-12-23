@@ -45,7 +45,7 @@ export function AboutSection() {
                 Singhji Institute of Engineering and Technology Nanded, currently
                 maintaining a{" "}
                 <Badge variant="secondary" className="mx-1">
-                  8.3/10.0 GPA
+                  8.7/10.0 GPA
                 </Badge>
                 . My journey in technology is driven by curiosity and a passion
                 for creating meaningful digital experiences.
@@ -78,7 +78,7 @@ export function AboutSection() {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center p-4 bg-background/50 rounded-lg">
-                    <div className="text-2xl font-bold text-primary">8.3</div>
+                    <div className="text-2xl font-bold text-primary">8.7</div>
                     <div className="text-sm text-muted-foreground">
                       Current GPA
                     </div>
